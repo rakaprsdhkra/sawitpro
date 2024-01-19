@@ -1,0 +1,21 @@
+2023-08-15 13:45:01 checkout 200 467ms userA tx1035 Checkout Success Apple iPhone 13
+2023-08-15 13:45:47 payment 200 314ms userA tx1035 Payment Success Apple iPhone 13
+2023-08-15 13:46:11 notification 200 110ms userA tx1035 Notification has been sent
+2023-08-15 16:11:40 checkout 200 252ms userB tx1142 Checkout Success Apple iPhone 14 Pro
+2023-08-15 16:12:05 payment 502 5011ms userB tx1142 Error 502 Bad Gateway
+2023-08-16 11:17:20 checkout 404 87ms userC tx1819 Error 404 Request Not Found
+2023-08-16 14:05:50 checkout 200 112ms userD tx1964 Checkout Success Apple iPhone 13
+2023-08-16 14:06:01 payment 200 126ms userD tx1964 Payment Success Apple iPhone 13
+2023-08-16 14:06:32 notification 404 91ms userD tx1964 Error 404 Request Not Found
+2023-08-16 18:20:22 checkout 502 5142ms userA tx2123 Error 502 Bad Gateway
+2023-08-17 10:32:12 checkout 200 102ms userE tx2544 Checkout Success Samsung Galaxy S24
+2023-08-17 10:32:23 payment 200 119ms userE tx2544 Payment Success Samsung Galaxy S24
+2023-08-17 10:32:35 notification 200 98ms userE tx2544 Notification has been sent
+2023-08-17 17:02:56 checkout 200 202ms userF tx3482 Checkout Success Apple Watch Ultra 2
+2023-08-17 17:03:07 payment 200 146ms userF tx3482 Payment Success Apple Watch Ultra 2
+2023-08-17 17:03:18 notification 502 4998ms userF tx3482 Error 502 Bad Gateway
+2023-08-17 19:29:29 checkout 502 4929ms userD tx3621 Error 502 Bad Gateway
+2023-08-18 11:40:21 checkout 200 101ms userG tx4024 Checkout Success Apple iPhone 12 Pro
+2023-08-18 11:40:32 payment 404 124ms userG tx4024 Error 404 Request Not Found
+2023-08-18 13:42:25 checkout 200 210ms userE tx4223 Checkout Success Apple iPhone 13 Pro Max
+2023-08-18 13:42:46 payment 502 5005ms userE tx4223 Error 502 Bad Gateway
