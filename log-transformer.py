@@ -32,6 +32,8 @@ def process_log_file(log_file_path, output_file_path='metrics.json'):
                 existing_log = json.loads(line.strip())
                 existing_dates.add(existing_log['@timestamp'])
 
+    current_year = datetime.now().year  # Get the current year
+
     with open(log_file_path, 'r') as file:
         for line in file:
             log_entry = parse_log_entry(line.strip())
@@ -40,11 +42,11 @@ def process_log_file(log_file_path, output_file_path='metrics.json'):
                     error_count[log_entry['status_code']] += 1
 
                 # Extract date from timestamp
-                date = datetime.strptime(log_entry['timestamp'], '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d')
+                date = datetime.strptime(log_entry['timestamp'], '%Y-%m-%d %H:%M:%S').strftime(f'{current_year}-%m-%d')
                 if date not in existing_dates:
                     if date not in datewise_metrics:
                         datewise_metrics[date] = {'error_502': 0, 'error_404': 0, 'total_transactions': 0,
-                                                  '@timestamp': f"{date}T00:00:00.000Z"}
+                                                  '@timestamp': f"{date}T17:00:00.000Z"}
 
                     datewise_metrics[date]['error_502'] += 1 if log_entry['status_code'] == 502 else 0
                     datewise_metrics[date]['error_404'] += 1 if log_entry['status_code'] == 404 else 0
