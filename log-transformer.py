@@ -32,7 +32,7 @@ def process_log_file(log_file_path, output_file_path='metrics.json'):
                 existing_log = json.loads(line.strip())
                 existing_dates.add(existing_log['@timestamp'])
 
-    current_year = datetime.now().year  # Get the current year
+    current_year = datetime.now().year
 
     with open(log_file_path, 'r') as file:
         for line in file:
@@ -41,7 +41,6 @@ def process_log_file(log_file_path, output_file_path='metrics.json'):
                 if log_entry['status_code'] >= 400:
                     error_count[log_entry['status_code']] += 1
 
-                # Extract date from timestamp
                 date = datetime.strptime(log_entry['timestamp'], '%Y-%m-%d %H:%M:%S').strftime(f'{current_year}-%m-%d')
                 if date not in existing_dates:
                     if date not in datewise_metrics:
@@ -72,11 +71,10 @@ def process_log_file(log_file_path, output_file_path='metrics.json'):
 
     transformed_logs = [json.dumps(metrics, separators=(',', ':')) for metrics in datewise_metrics.values()]
 
-    # Save to file (overwrite if it already exists)
     with open(output_file_path, 'w') as output_file:
         for transformed_log in transformed_logs:
             output_file.write(transformed_log + '\n')
 
 if __name__ == "__main__":
-    log_file_path = "sample.log"  # Update with the actual path to your log file
+    log_file_path = "sample.log"
     process_log_file(log_file_path)

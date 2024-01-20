@@ -40,17 +40,15 @@ def process_log_file(log_file_path, output_file_path='logs.json'):
         for line in file:
             log_entry = parse_log_entry(line.strip())
             if log_entry:
-                # Extract date from timestamp and subtract one day
                 date = (datetime.strptime(log_entry['@timestamp'], '%Y-%m-%d %H:%M:%S') - timedelta(days=1)).strftime('%Y-%m-%d')
                 if date not in existing_dates:
                     log_entry['@timestamp'] = format_timestamp_with_timezone(log_entry['@timestamp'])
                     transformed_logs.append(json.dumps(log_entry, separators=(',', ':')))
 
-    # Save to file (append if it already exists)
     with open(output_file_path, 'a') as output_file:
         for transformed_log in transformed_logs:
             output_file.write(transformed_log + '\n')
 
 if __name__ == "__main__":
-    log_file_path = "sample.log"  # Update with the actual path to your log file
+    log_file_path = "sample.log"
     process_log_file(log_file_path)
